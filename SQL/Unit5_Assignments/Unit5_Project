@@ -1,0 +1,36 @@
+CREATE TABLE videos (
+ID serial PRIMARY KEY, 
+title VARCHAR(255) NOT NULL,
+length VARCHAR(255) NOT NULL,
+url VARCHAR(255) NOT NULL);
+
+SELECT * FROM videos;
+
+INSERT INTO videos(title,length,url)
+VALUES
+('Marvel Studios’ Eternals | Final Trailer','2:51','https://www.youtube.com/watch?v=x_me3xsvDgk&t=1s'),
+('VENOM - Official Trailer (HD)','2:43','https://www.youtube.com/watch?v=u9Mv98Gr5pY'),
+('THE SUICIDE SQUAD – Official Trailer','2:35','https://www.youtube.com/watch?v=jz1FrtMIh5c'),
+('THE BATMAN Trailer (2022)','2:35','https://www.youtube.com/watch?v=-FZ-pPFAjYY')
+SELECT * FROM videos;
+
+CREATE TABLE reviews (
+ID serial PRIMARY KEY, 
+username VARCHAR(255) NOT NULL,
+rating VARCHAR(255),
+review VARCHAR(255)NOT NULL);
+
+SELECT * FROM reviews;
+
+INSERT INTO reviews(username,rating,review)
+VALUES
+('Jay','4/5','The score is so comforting. I cannot put it into words.'),
+('Night','5/5','Tom Hardys acting was the main reason this movie was super cool'),
+('Elton','','Let’s hope at least 80% shown in trailer actually makes into movie'),
+('Jaden','5/5','I’ve watched this trailer so many times and it’s still amazing')
+UPDATE reviews SET rating = 'NULL' WHERE ID =3
+SELECT * FROM reviews;
+
+SELECT * FROM videos
+INNER JOIN reviews
+ON videos.id = reviews.id
